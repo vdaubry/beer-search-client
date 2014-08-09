@@ -7,7 +7,8 @@ var beerSearchApp = angular.module('beerSearchApp', [
   'beerSearchApp.filters',
   'beerSearchApp.services',
   'beerSearchApp.directives',
-  'beerSearchApp.controllers'
+  'beerSearchApp.controllers',
+  'ui.bootstrap'
 ]);
 
 
