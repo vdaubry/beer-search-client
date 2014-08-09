@@ -1,0 +1,40 @@
+h1 {
+  padding: 50px 0px 50px 0px;
+  text-align: center;
+  font-size: 49px;
+}
+
+h2 {
+  padding: 100px 0px 50px 0px;
+  text-align: center;
+}
+
+img {
+  max-width:100%;
+}
+
+a {
+  text-decoration: none !important
+}
+
+.cities {
+  margin-bottom: 100px;
+  text-align: center;
+  font-size: 48px;
+}
+
+.paris {
+  height: 338px;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-image: url('../img/home/paris.jpg');
+  margin-right: 15px;
+}
+
+.bruxelles {
+  height: 338px;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-image: url('../img/home/bruxelles.jpg');
+  margin-left: 15px;
+}
