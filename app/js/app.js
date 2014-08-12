@@ -14,6 +14,6 @@ var beerSearchApp = angular.module('beerSearchApp', [
 
 beerSearchApp.config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/home', {templateUrl: 'partials/home.html', controller: 'HomeController'});
-  $routeProvider.when('/beers', {templateUrl: 'partials/beers.html', controller: 'BeersController'});
+  $routeProvider.when('/:city/beers', {templateUrl: 'partials/beers.html', controller: 'BeersController'});
   $routeProvider.otherwise({redirectTo: '/home'});
 }]);

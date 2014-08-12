@@ -11,7 +11,6 @@
     "angular-loader": "1.2.x",
     "angular-mocks": "~1.2.x",
     "angular-bootstrap": "0.11.x",
-    "jquery": "1.10.2",
     "bootstrap": "~3.1.1"
   }
 }

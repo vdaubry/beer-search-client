@@ -1,5 +1,23 @@
-<p>This is the partial for view 2.</p>
-<p>
-  Showing of 'interpolate' filter:
-  {{ 'Current version is v%VERSION%.' | interpolate }}
-</p>
+<div class="row">
+  <div class="col-md-12">
+    <h1>Beers in {{city}}</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+    <ul class="beers">
+      <li ng-repeat="bar in bars" class="bar">
+        <p>{{bar.name}}</p>
+        <p>{{bar.street_number}} {{bar.street}} {{bar.city}}</p>
+        <p>Beers : </p>
+        <ul>
+          <li ng-repeat="beer in bar.beers">
+            <p>{{beer}}</p>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-3"></div>
+</div>
