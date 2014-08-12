@@ -9,8 +9,10 @@ beerSearchControllers.controller('HomeController', ['$scope', function($scope) {
 
 beerSearchControllers.controller('BeersController', ['$scope', '$routeParams', '$http', 
   function($scope, $routeParams, $http) {
-      $http.get('json/'+$routeParams.city+'.json').success(function(data) {
+    $scope.loading=1;
+    $http.get('json/'+$routeParams.city+'.json').success(function(data) {
       $scope.bars = data;
+      $scope.loading=0;
     });
     $scope.city = $routeParams.city;
 }]);

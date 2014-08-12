@@ -4,10 +4,8 @@ h1 {
   font-size: 49px;
 }
 
-.beers {
-  list-style: none;
-}
-
-.bar {
-  margin-bottom: 35px;
+.loader {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
