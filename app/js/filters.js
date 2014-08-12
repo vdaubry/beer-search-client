@@ -5,6 +5,10 @@
 angular.module('beerSearchApp.filters', []).
   filter('search', ['SearchService', function(SearchService) {
     return function (items, inputText) {
+      if(inputText == undefined) {
+        return items;
+      }
+
       if(items != undefined) {
         var searchResults = SearchService.search(inputText, SearchService.index);
 
