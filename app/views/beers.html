@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-md-12">
+    <h1>Beers in {{city}}</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <img src="images/beers/loading.gif" class="loader" ng-show="loading">
+  </div>
+</div>
+<div class="row search">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">Search: <input ng-model="query"></div>
+  <div class="col-md-4"></div>
+</div>
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+    <ul class="list-group">
+      <li ng-repeat="bar in bars | search:query" class="list-group-item">
+        <h4 class="list-group-item-heading">{{bar.name}}</h4>
+        <p class="list-group-item-text">{{bar.street_number}} {{bar.street}} {{bar.city}}</p>
+        <p class="list-group-item-text">Beers : </p>
+        <ul>
+          <li ng-repeat="beer in bar.beers">
+            <p class="list-group-item-text">{{beer}}</p>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-3"></div>
+</div>
