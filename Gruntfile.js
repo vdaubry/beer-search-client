@@ -35,14 +35,14 @@ module.exports = function (grunt) {
       },
       js: {
         files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
-        tasks: ['newer:jshint:all'],
+        tasks: [],
         options: {
           livereload: '<%= connect.options.livereload %>'
         }
       },
       jsTest: {
         files: ['test/spec/{,*/}*.js'],
-        tasks: ['newer:jshint:test', 'karma']
+        tasks: ['karma']
       },
       styles: {
         files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
@@ -111,24 +111,24 @@ module.exports = function (grunt) {
     },
 
     // Make sure code styles are up to par and there are no obvious mistakes
-    jshint: {
-      options: {
-        jshintrc: '.jshintrc',
-        reporter: require('jshint-stylish')
-      },
-      all: {
-        src: [
-          'Gruntfile.js',
-          '<%= yeoman.app %>/scripts/{,*/}*.js'
-        ]
-      },
-      test: {
-        options: {
-          jshintrc: 'test/.jshintrc'
-        },
-        src: ['test/spec/{,*/}*.js']
-      }
-    },
+    // jshint: {
+    //   options: {
+    //     jshintrc: '.jshintrc',
+    //     reporter: require('jshint-stylish')
+    //   },
+    //   all: {
+    //     src: [
+    //       'Gruntfile.js',
+    //       '<%= yeoman.app %>/scripts/{,*/}*.js'
+    //     ]
+    //   },
+    //   test: {
+    //     options: {
+    //       jshintrc: 'test/.jshintrc'
+    //     },
+    //     src: ['test/spec/{,*/}*.js']
+    //   }
+    // },
 
     // Empties folders to start fresh
     clean: {
@@ -312,7 +312,8 @@ module.exports = function (grunt) {
             '*.html',
             'views/{,*/}*.html',
             'images/{,*/}*.{webp}',
-            'fonts/*'
+            'fonts/*',
+            'json/*'
           ]
         }, {
           expand: true,
@@ -354,6 +355,22 @@ module.exports = function (grunt) {
       unit: {
         configFile: 'test/karma.conf.js',
         singleRun: true
+      }
+    },
+
+    rsync: {
+      options: {
+          args: ["--verbose"],
+          exclude: [".git*","*.scss","node_modules"],
+          recursive: true
+      },
+      prod: {
+          options: {
+              src: "dist/",
+              dest: "/srv/www/beer-search-client/current",
+              host: "ubuntu@92.222.1.55",
+              delete: true // Careful this option could cause data loss, read the docs!
+          }
       }
     }
   });
@@ -405,8 +422,13 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('default', [
-    'newer:jshint',
-    'test',
+    //'test',
     'build'
+  ]);
+
+  grunt.registerTask('deploy', [
+    //'test',
+    'build',
+    'rsync'
   ]);
 };
